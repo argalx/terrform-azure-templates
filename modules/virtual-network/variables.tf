@@ -17,3 +17,12 @@ variable "vnet-address-space" {
     description = "Virtual network address space."
     type = list(string)
 }
+
+variable "vnet-subnets" {
+    description = "A list of subnets."
+    type = list(object({
+      name = string
+      address_prefixes = list(string)
+      security_group = string
+    }))
+}
