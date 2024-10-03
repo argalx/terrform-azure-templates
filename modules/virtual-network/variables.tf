@@ -18,11 +18,18 @@ variable "vnet-address-space" {
     type = list(string)
 }
 
+# Dynamic Subnet and Delegation Assignment
 variable "vnet-subnets" {
     description = "A list of subnets."
     type = list(object({
-      name = string
-      address_prefixes = list(string)
-      security_group = string
+        name = string
+        address_prefixes = list(string)
+        security_group = string
+        hasDelegation = bool
+        delegation_name = string
+        service_delegation = list(object({
+          name = string
+          actions = list(string)
+        }))
     }))
 }

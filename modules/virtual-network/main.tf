@@ -10,6 +10,15 @@ resource "azurerm_virtual_network" "vnet" {
             name = subnet.value.name
             address_prefixes = subnet.value.address_prefixes
             security_group = subnet.value.security_group
+
+            dynamic "delegation" {
+                # Run once if subnet has delegation
+                for_each = subnet.value.hasDelegation == true ? [1] : []
+                content {
+                    name = subnet.value.delegation_name
+                    service_delegation = subnet.value.service_delegation
+                }
+            }
         }
     }
 }
