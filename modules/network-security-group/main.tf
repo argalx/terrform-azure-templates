@@ -24,6 +24,7 @@ resource "azurerm_network_security_group" "nsg" {
         }
     }
 
+    # Add a way to dynamically define tags
     tags = {
     }
 }
