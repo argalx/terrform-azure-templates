@@ -6,7 +6,7 @@ resource "azurerm_network_security_group" "nsg" {
 
     # Dynamic Security Rule
     dynamic "security_rule" {
-        for_each = var.nsg-security-rule
+        for_each = var.nsg-security-rules
         content {
             name = security_rule.value.name
             priority = security_rule.value.priority

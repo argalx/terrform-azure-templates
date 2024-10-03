@@ -15,7 +15,7 @@ variable "nsg-rg-location" {
 }
 
 # Security Rule Variable
-variable "nsg-security-rule" {
+variable "nsg-security-rules" {
     description = "A list of security rules for the NSG"
     type = list(object({
         name = string
