@@ -1,9 +1,10 @@
+# NSG Resource
 resource "azurerm_network_security_group" "nsg" {
     name = var.nsg-name
     resource_group_name = var.nsg-rg-name
     location = var.nsg-rg-location
 
-    # Security Rule
+    # Dynamic Security Rule
     dynamic "security_rule" {
         for_each = var.nsg-security-rule
         content {
@@ -25,4 +26,10 @@ resource "azurerm_network_security_group" "nsg" {
 
     tags = {
     }
+}
+
+# Subnet NSG Assoc Resource
+resource "azurerm_subnet_network_security_group_association" "subnet-nsg-assoc" {
+    subnet_id = var.subnet-id
+    network_security_group_id = azurerm_network_security_group.nsg.id
 }
