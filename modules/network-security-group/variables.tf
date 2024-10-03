@@ -33,9 +33,3 @@ variable "nsg-security-rules" {
         destination_address_prefixes = list(string)
     }))
 }
-
-# Subnet NSG Assoc Variable
-variable "subnet-id" {
-    description = "Subnet ID."
-    type = string
-}

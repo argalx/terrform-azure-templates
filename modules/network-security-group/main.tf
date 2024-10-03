@@ -28,9 +28,3 @@ resource "azurerm_network_security_group" "nsg" {
     tags = {
     }
 }
-
-# Subnet NSG Assoc Resource
-resource "azurerm_subnet_network_security_group_association" "subnet-nsg-assoc" {
-    subnet_id = var.subnet-id
-    network_security_group_id = azurerm_network_security_group.nsg.id
-}
