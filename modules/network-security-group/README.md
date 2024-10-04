@@ -1,6 +1,6 @@
 # Network Security Group Module
 
-# Prerequisites
+# Required azurerm Resource
 
 - azurerm_resource_group @ main.tf
 
