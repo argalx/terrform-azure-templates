@@ -2,7 +2,7 @@
 
 # Required azurerm Resource/Module
 
-- N/A
+- azurerm_resource_group @ main.tf
 
 # Module Properties
 
